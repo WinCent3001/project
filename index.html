@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meine Freundin</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Merriweather&display=swap" rel="stylesheet">
+    <title>Wenn du willst</title>
     
     <style>
         body {
@@ -14,12 +12,15 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            font-family: 'Merriweather', serif; 
+            
+            /* NEUE SYSTEM-SCHRIFTART: Georgia */
+            font-family: Georgia, serif; 
             text-align: center;
             overflow: hidden; 
             
-            /* HINTERGRUND-BILD START */
-            background-image: url('background.jpg'); 
+            /* HINTERGRUND-BILD START (mit absolutem Pfad) */
+            /* Achtung: Browser benötigen den Pfad oft mit vorangestelltem "file:///" und Schrägstrichen! */
+            background-image: url('C:/Users/jaelp/OneDrive - Käthe-Kollwitz-Schule Bruchsal/Informatik/Wenn du willst/background.jpg'); 
             background-size: cover; 
             background-position: center;
         }
@@ -30,7 +31,7 @@
             background-color: rgba(255, 255, 255, 0.9);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             border: 2px solid #4a4a4a;
-            width: 350px; /* Feste Breite zur Vereinfachung */
+            width: 350px;
             position: relative; 
         }
 
@@ -40,11 +41,11 @@
             font-style: italic;
             margin-bottom: 20px;
             min-height: 25px; 
-            color: #708090; /* Vintage Blau/Grau */
+            color: #708090; 
         }
 
         #frage-text {
-            font-family: 'Dancing Script', cursive; 
+            font-family: 'Comic Sans MS', cursive; 
             font-size: 3.5em; 
             margin-bottom: 30px; 
             font-weight: 700;
@@ -70,18 +71,18 @@
         }
         
         #ja-btn {
-            background-color: #5d8f63; /* Vintage Grün */
+            background-color: #5d8f63; 
         }
         
         #nein-btn {
-            background-color: #708090; /* Vintage Blau */
+            background-color: #708090;
             position: relative; 
             transition: left 0.1s linear, top 0.1s linear; 
         }
         
         #nein-spruch-box {
             font-size: 0.9em;
-            color: #b03a2e; /* Vintage Rot */
+            color: #b03a2e;
             font-weight: bold;
             margin-top: 10px; 
             min-height: 15px;
@@ -93,7 +94,7 @@
             font-size: 2.5em;
             color: #cc5b5b;
             margin-bottom: 10px;
-            font-family: 'Dancing Script', cursive;
+            font-family: 'Comic Sans MS', cursive;
         }
         .final-text p {
             font-size: 1.2em;
@@ -110,6 +111,7 @@
     </style>
 </head>
 <body>
+    
     <div id="container">
         <div id="sprueche-box">Du bist nicht fettig wie Herr Adler</div>
         <div id="frage-text">Möchtest du meine Freundin sein?</div>
@@ -146,6 +148,7 @@
             "AUF GAR KEINEN FALL!"
         ];
 
+        // Wir holen die HTML-Elemente ins JavaScript
         const neinBtn = document.getElementById('nein-btn');
         const jaBtn = document.getElementById('ja-btn');
         const spruecheBox = document.getElementById('sprueche-box');
@@ -162,9 +165,11 @@
         }
 
         function bewegeNeinButton() {
+            // Sprüche-Logik
             neinSpruchBox.textContent = spruecheNein[neinSpruchIndex];
             neinSpruchIndex = (neinSpruchIndex + 1) % spruecheNein.length;
 
+            // Bewegungs-Logik
             const containerRect = container.getBoundingClientRect();
             const btnRect = neinBtn.getBoundingClientRect();
 
@@ -191,7 +196,8 @@
         jaBtn.addEventListener('click', () => {
             clearInterval(startSpruchInterval);
             
-            body.style.backgroundImage = "url('background2.jpg')";
+            // HINTERGRUND-BILD AUF background2.jpg WECHSELN (mit absolutem Pfad)
+            body.style.backgroundImage = "url('C:/Users/jaelp/OneDrive - Käthe-Kollwitz-Schule Bruchsal/Informatik/Wenn du willst/background2.jpg')";
             body.style.backgroundColor = '#f5e0e3';
             container.style.borderColor = '#884a51';
             
