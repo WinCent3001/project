@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wenn du willst</title>
+    <title>Meine Freundin</title>
     
     <style>
         body {
@@ -12,17 +12,13 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            
-            /* Basis-Schriftart */
+            /* NEUE SYSTEM-SCHRIFTART: Georgia */
             font-family: Georgia, serif; 
             text-align: center;
             overflow: hidden; 
             
-            /* Falls das Bild nicht lädt, wird der Hintergrund hellgrau */
-            background-color: lightgray;
-            
-            /* HINTERGRUND-BILD START (mit absolutem Pfad von Ihrem Computer) */
-            background-image: url('C:/Users/jaelp/OneDrive - Käthe-Kollwitz-Schule Bruchsal/Informatik/Wenn du willst/background.jpg'); 
+            /* HINTERGRUND-BILD START */
+            background-image: url('background.jpg'); 
             background-size: cover; 
             background-position: center;
         }
@@ -30,12 +26,10 @@
         #container {
             padding: 30px 40px; 
             border-radius: 5px;
-            /* Hintergrundfarbe des Containers (90% weiß, 10% transparent) */
             background-color: rgba(255, 255, 255, 0.9);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             border: 2px solid #4a4a4a;
             width: 350px;
-            /* Wichtig: Positionierungsgrundlage für den beweglichen NEIN-Button */
             position: relative; 
         }
 
@@ -48,8 +42,8 @@
             color: #708090; 
         }
 
-        /* Die Hauptfrage */
         #frage-text {
+            /* NEUE SYSTEM-SCHRIFTART für den dekorativen Look */
             font-family: 'Comic Sans MS', cursive; 
             font-size: 3.5em; 
             margin-bottom: 30px; 
@@ -57,14 +51,12 @@
             color: #4a4a4a;
         }
 
-        /* Container für die Buttons */
         .buttons {
             display: flex;
             gap: 30px; 
             justify-content: center;
         }
 
-        /* Gemeinsames Styling für alle Buttons */
         .btn {
             padding: 12px 25px;
             font-size: 0.9em;
@@ -78,11 +70,11 @@
         }
         
         #ja-btn {
-            background-color: #5d8f63; /* Vintage Grün */
+            background-color: #5d8f63; 
         }
         
         #nein-btn {
-            background-color: #708090; /* Vintage Blau */
+            background-color: #708090;
             position: relative; 
             transition: left 0.1s linear, top 0.1s linear; 
         }
@@ -101,7 +93,7 @@
             font-size: 2.5em;
             color: #cc5b5b;
             margin-bottom: 10px;
-            font-family: 'Comic Sans MS', cursive;
+            font-family: 'Comic Sans MS', cursive; /* Anpassung auch hier */
         }
         .final-text p {
             font-size: 1.2em;
@@ -130,7 +122,6 @@
     </div>
 
     <script>
-        // Listen der Sprüche
         const spruecheStart = [
             "Selber Tisch, selbe Tomate 🍅",
             "Mein Prinz" ,
@@ -156,7 +147,6 @@
             "AUF GAR KEINEN FALL!"
         ];
 
-        // Elemente aus dem HTML holen
         const neinBtn = document.getElementById('nein-btn');
         const jaBtn = document.getElementById('ja-btn');
         const spruecheBox = document.getElementById('sprueche-box');
@@ -166,9 +156,6 @@
         
         let neinSpruchIndex = 0;
         let startSpruchInterval;
-        // Absoluter Pfad für das zweite Bild (für den Klick-Event)
-        const absoluteBackground2Path = 'C:/Users/jaelp/OneDrive - Käthe-Kollwitz-Schule Bruchsal/Informatik/Wenn du willst/background2.jpg';
-
 
         function zeigeZufaelligenStartSpruch() {
             const zufaelligerSpruch = spruecheStart[Math.floor(Math.random() * spruecheStart.length)];
@@ -176,49 +163,39 @@
         }
 
         function bewegeNeinButton() {
-            // Nächsten NEIN-Spruch anzeigen
             neinSpruchBox.textContent = spruecheNein[neinSpruchIndex];
             neinSpruchIndex = (neinSpruchIndex + 1) % spruecheNein.length;
 
-            // Positionen und Größen holen
             const containerRect = container.getBoundingClientRect();
             const btnRect = neinBtn.getBoundingClientRect();
 
             const padding = 60;
-            
-            // Berechnung der zufälligen Positionen innerhalb des Containers
             const maxX = containerRect.width - btnRect.width - padding; 
             const maxY = containerRect.height - btnRect.height - padding; 
             
             const randomX = padding + Math.random() * (maxX - padding);
             const randomY = padding + Math.random() * (maxY - padding);
 
-            // Button auf 'absolute' Positionierung setzen und verschieben
             neinBtn.style.position = 'absolute';
             neinBtn.style.left = `${randomX}px`;
             neinBtn.style.top = `${randomY}px`;
         }
 
-        // Bei Mausberührung: Button bewegen
         neinBtn.addEventListener('mouseover', bewegeNeinButton);
         
-        // Bei Klick: Button auch bewegen (falls man ihn erwischt)
         neinBtn.addEventListener('click', (e) => {
             e.preventDefault(); 
             bewegeNeinButton(); 
         });
 
 
-        // Logik für den JA-Klick
         jaBtn.addEventListener('click', () => {
             clearInterval(startSpruchInterval);
             
-            // HINTERGRUND-BILD WECHSELN & Styling anpassen
-            body.style.backgroundImage = `url('${absoluteBackground2Path}')`; // Absoluter Pfad für background2.jpg
+            body.style.backgroundImage = "url('background2.jpg')";
             body.style.backgroundColor = '#f5e0e3';
             container.style.borderColor = '#884a51';
             
-            // Finalen Text definieren
             const finalerText = `
                 <div class="heart-symbol">❤️</div>
                 <div class="final-text">
@@ -227,14 +204,11 @@
                 </div>
             `;
             
-            // Inhalt ersetzen
             container.innerHTML = finalerText;
             
-            // Bewegung deaktivieren, da der Button weg ist
             neinBtn.removeEventListener('mouseover', bewegeNeinButton);
         });
 
-        // Start der Seite: Timer starten und Spruch anzeigen
         document.addEventListener('DOMContentLoaded', () => {
             zeigeZufaelligenStartSpruch();
             startSpruchInterval = setInterval(zeigeZufaelligenStartSpruch, 1000); 
