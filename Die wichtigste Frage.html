@@ -1,168 +1,127 @@
 <!DOCTYPE html>
-<!-- saved from url=(0116)file:///C:/Users/jaelp/OneDrive%20-%20K%C3%A4the-Kollwitz-Schule%20Bruchsal/Informatik/Wenn%20du%20willst/index.html -->
-<html lang="de"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Die wichtigste Frage (Vintage Edition)</title>
-    
-    <link href="./Die wichtigste Frage_files/css2" rel="stylesheet">
+    <title>Meine Freundin</title>
     
     <style>
-        /* CSS-Variablen für die gedämpfte Farbpalette (GRÜN/BLAU-Phase) */
-        :root {
-            --vintage-bg: #fdf5e6; /* Creme-Weiß / Sepia-Look (Startfarbe) */
-            --vintage-dark: #4a4a4a; /* Dunkles Grau/Braun */
-            --vintage-accent-green: #5d8f63; /* Gedämpftes Grün */
-            --vintage-accent-blue: #708090; /* Schieferblau */
-            --vintage-error: #b03a2e; /* Gedämpftes Rot für NEIN-Sprüche */
-
-            /* NEUE VARIABLEN für die LIEBES-Phase (Rot/Rosa-Vintage) */
-            --love-bg: #f5e0e3; /* Dusty Rose/Sehr helles Rosa */
-            --love-dark: #884a51; /* Burgundy/Dunkles Weinrot */
-            --love-accent-red: #cc5b5b; /* Verblasstes Rot */
-        }
-        
         body {
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             min-height: 100vh;
             margin: 0;
-            font-family: 'Merriweather', serif; 
-            background-color: var(--vintage-bg); /* Startfarbe */
-            color: var(--vintage-dark);
+            /* NEUE SYSTEM-SCHRIFTART: Georgia */
+            font-family: Georgia, serif; 
             text-align: center;
             overflow: hidden; 
-            transition: background-color 1s ease-in-out; /* Sanfter Farbübergang */
-        }
-
-        /* Hintergrund-Textur (subtil) */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjUiIG51bU9jdGF2ZXM9IjIiLz48ZmVDb2xvck1hdHJpeCB0eXBlPSJzYXR1cmF0ZSIgdmFsdWVzPSIwIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0id2hpdGUiIGZpbHRlcj0idXJsKCNhIiBvcGFjaXR5PSIuMSIvPjwvc3ZnPg==');
+            
+            /* HINTERGRUND-BILD START */
+            background-image: url('background.jpg'); 
+            background-size: cover; 
+            background-position: center;
         }
 
         #container {
-            padding: 50px;
+            padding: 30px 40px; 
             border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            border: 2px solid var(--vintage-dark);
-            z-index: 10; 
-            min-width: 400px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 2px solid #4a4a4a;
+            width: 350px;
             position: relative; 
-            transition: background-color 1s ease-in-out, border-color 1s ease-in-out, color 1s ease-in-out; /* Sanfte Übergänge */
         }
 
         /* Box für die süßen Sprüche */
         #sprueche-box {
-            font-size: 1.3em;
+            font-size: 1em;
             font-style: italic;
-            margin-bottom: 30px;
-            min-height: 35px; 
-            color: var(--vintage-accent-blue);
-            font-weight: normal;
-        }
-
-        /* Box für die NEIN-Sprüche */
-        #nein-spruch-box {
-            font-size: 1.2em;
-            color: var(--vintage-error);
-            font-weight: bold;
-            margin-top: 20px;
-            min-height: 25px;
-            text-transform: uppercase;
+            margin-bottom: 20px;
+            min-height: 25px; 
+            color: #708090; 
         }
 
         #frage-text {
-            font-size: 3.5em;
-            margin-bottom: 50px;
-            font-weight: bold;
-            color: var(--vintage-dark);
+            /* NEUE SYSTEM-SCHRIFTART für den dekorativen Look */
+            font-family: 'Comic Sans MS', cursive; 
+            font-size: 3.5em; 
+            margin-bottom: 30px; 
+            font-weight: 700;
+            color: #4a4a4a;
         }
 
         .buttons {
             display: flex;
-            gap: 40px; 
+            gap: 30px; 
             justify-content: center;
         }
 
         .btn {
-            padding: 18px 35px;
-            font-size: 1.2em;
+            padding: 12px 25px;
+            font-size: 0.9em;
             font-weight: 700;
-            border: 2px solid var(--vintage-dark); 
+            border: 2px solid #4a4a4a; 
             border-radius: 0; 
             cursor: pointer;
             transition: all 0.2s;
-            box-shadow: 3px 3px 0px var(--vintage-dark);
-        }
-
-        /* JA-Button (Vintage Grün) */
-        #ja-btn {
-            background-color: var(--vintage-accent-green); 
+            box-shadow: 3px 3px 0px #4a4a4a;
             color: white;
-        }
-        #ja-btn:hover {
-            transform: translate(-1px, -1px);
-            box-shadow: 4px 4px 0px var(--vintage-dark);
-        }
-
-        /* NEIN-Button (Vintage Blau) */
-        #nein-btn {
-            background-color: var(--vintage-accent-blue); 
-            color: white;
-            position: relative; 
         }
         
-        /* Styling für den finalen Text nach dem JA-Klick */
+        #ja-btn {
+            background-color: #5d8f63; 
+        }
+        
+        #nein-btn {
+            background-color: #708090;
+            position: relative; 
+            transition: left 0.1s linear, top 0.1s linear; 
+        }
+        
+        #nein-spruch-box {
+            font-size: 0.9em;
+            color: #b03a2e;
+            font-weight: bold;
+            margin-top: 10px; 
+            min-height: 15px;
+            text-transform: uppercase;
+        }
+        
+        /* Styling für den finalen Text (JA-Seite) */
         .final-text h2 {
-            font-size: 3em;
-            color: var(--love-accent-red); /* Rot */
-            margin-bottom: 15px;
+            font-size: 2.5em;
+            color: #cc5b5b;
+            margin-bottom: 10px;
+            font-family: 'Comic Sans MS', cursive; /* Anpassung auch hier */
         }
         .final-text p {
-            font-size: 1.5em;
-            color: var(--love-dark); /* Weinrot */
+            font-size: 1.2em;
+            color: #884a51;
             line-height: 1.4;
-            font-weight: normal;
-            border-top: 1px solid var(--love-dark); /* Rote Linie */
-            padding-top: 20px;
+            border-top: 1px solid #884a51;
+            padding-top: 10px;
         }
-        
-        /* Styling für das Herz-Symbol */
         .heart-symbol {
-            font-size: 2em;
-            color: var(--love-accent-red);
-            margin-bottom: 20px;
+            font-size: 1.8em;
+            color: #cc5b5b;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
-
+    
     <div id="container">
         <div id="sprueche-box">Du bist nicht fettig wie Herr Adler</div>
-
         <div id="frage-text">Möchtest du meine Freundin sein?</div>
-
         <div class="buttons">
             <button id="ja-btn" class="btn">Ja!</button>
             <button id="nein-btn" class="btn">Nein</button>
         </div>
-        
         <div id="nein-spruch-box"></div>
     </div>
 
     <script>
-        // Array mit neuen, sehr spezifischen Startsprüchen
         const spruecheStart = [
             "Selber Tisch, selbe Tomate 🍅",
             "Mein Prinz" ,
@@ -174,7 +133,6 @@
             "Du bist so mausig:)"
         ];
         
-        // Array mit der vollständigen Liste der NEIN-Sprüche
         const spruecheNein = [
             "I like your funny words magic man",
             "Du fettige!",
@@ -189,49 +147,40 @@
             "AUF GAR KEINEN FALL!"
         ];
 
-        // Referenzen auf die HTML-Elemente
         const neinBtn = document.getElementById('nein-btn');
         const jaBtn = document.getElementById('ja-btn');
         const spruecheBox = document.getElementById('sprueche-box');
         const neinSpruchBox = document.getElementById('nein-spruch-box');
         const container = document.getElementById('container');
-        const body = document.body; // Referenz auf den Body für den Farbumschlag
+        const body = document.body;
         
         let neinSpruchIndex = 0;
         let startSpruchInterval;
 
-        // Funktion, die einen zufälligen Spruch aus spruecheStart anzeigt
         function zeigeZufaelligenStartSpruch() {
             const zufaelligerSpruch = spruecheStart[Math.floor(Math.random() * spruecheStart.length)];
             spruecheBox.textContent = zufaelligerSpruch;
         }
 
-        // Funktion, die den Nein-Button bewegt und den spezifischen Spruch anzeigt
         function bewegeNeinButton() {
-            // 1. Spruch wechseln (Zyklisch)
             neinSpruchBox.textContent = spruecheNein[neinSpruchIndex];
-            neinSpruchIndex = (neinSpruchIndex + 1) % spruecheNein.length; // Zyklischer Wechsel
+            neinSpruchIndex = (neinSpruchIndex + 1) % spruecheNein.length;
 
-            // 2. Position des Buttons ändern
             const containerRect = container.getBoundingClientRect();
             const btnRect = neinBtn.getBoundingClientRect();
 
-            // Berechnung des maximalen Bewegungsbereichs im Container (mit Puffer)
             const padding = 60;
             const maxX = containerRect.width - btnRect.width - padding; 
             const maxY = containerRect.height - btnRect.height - padding; 
+            
+            const randomX = padding + Math.random() * (maxX - padding);
+            const randomY = padding + Math.random() * (maxY - padding);
 
-            // Generiere zufällige Koordinaten
-            const randomX = Math.random() * maxX;
-            const randomY = Math.random() * maxY;
-
-            // Setze die Position des Buttons absolut innerhalb des Containers
             neinBtn.style.position = 'absolute';
             neinBtn.style.left = `${randomX}px`;
             neinBtn.style.top = `${randomY}px`;
         }
 
-        // --- Logik für den NEIN-Button ---
         neinBtn.addEventListener('mouseover', bewegeNeinButton);
         
         neinBtn.addEventListener('click', (e) => {
@@ -240,15 +189,13 @@
         });
 
 
-        // --- Logik für den JA-Button ---
         jaBtn.addEventListener('click', () => {
             clearInterval(startSpruchInterval);
             
-            // 1. Farbumschlag auf Rot/Rosa-Vintage
-            body.style.backgroundColor = 'var(--love-bg)';
-            container.style.borderColor = 'var(--love-dark)';
+            body.style.backgroundImage = "url('background2.jpg')";
+            body.style.backgroundColor = '#f5e0e3';
+            container.style.borderColor = '#884a51';
             
-            // 2. Der finale Text mit Herz und Klammer-Kuss-Emoji
             const finalerText = `
                 <div class="heart-symbol">❤️</div>
                 <div class="final-text">
@@ -257,22 +204,16 @@
                 </div>
             `;
             
-            // 3. Zeige die Bestätigung an
             container.innerHTML = finalerText;
             
-            // 4. Aufräumen der Logik
             neinBtn.removeEventListener('mouseover', bewegeNeinButton);
         });
 
-        // Beim Laden der Seite
         document.addEventListener('DOMContentLoaded', () => {
-            // Zeige den ersten Spruch an
             zeigeZufaelligenStartSpruch();
-            
-            // Starte den Timer, der alle 1 Sekunden (1000ms) einen neuen Spruch anzeigt
             startSpruchInterval = setInterval(zeigeZufaelligenStartSpruch, 1000); 
         });
-
     </script>
 
-</body></html>
+</body>
+</html>
