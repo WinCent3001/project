@@ -17,7 +17,7 @@
             text-align: center;
             overflow: hidden; 
             
-            /* HINTERGRUND-BILD START */
+            /* HINTERGRUND-BILD STARTSEITE: background.jpg */
             background-image: url('background.jpg'); 
             background-size: cover; 
             background-position: center;
@@ -26,7 +26,8 @@
         #container {
             padding: 30px 40px; 
             border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.9);
+            /* HIER: Transparenz von 0.9 auf 0.8 geändert */
+            background-color: rgba(255, 255, 255, 0.8);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             border: 2px solid #4a4a4a;
             width: 350px;
@@ -192,8 +193,9 @@
         jaBtn.addEventListener('click', () => {
             clearInterval(startSpruchInterval);
             
+            // HIER: Hintergrundbild für die JA-Seite auf background2.jpg gesetzt
             body.style.backgroundImage = "url('background2.jpg')";
-            body.style.backgroundColor = '#f5e0e3';
+            body.style.backgroundColor = ''; // Hintergrundfarbe entfernen, wenn Bild geladen wird
             container.style.borderColor = '#884a51';
             
             const finalerText = `
