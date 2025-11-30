@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meine Freundin</title>
+    <title>Wenn du willst...</title>
     
     <style>
         body {
@@ -12,12 +12,10 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            /* NEUE SYSTEM-SCHRIFTART: Georgia */
             font-family: Georgia, serif; 
             text-align: center;
             overflow: hidden; 
             
-            /* HINTERGRUND-BILD STARTSEITE: background.jpg */
             background-image: url('background.jpg'); 
             background-size: cover; 
             background-position: center;
@@ -26,7 +24,6 @@
         #container {
             padding: 30px 40px; 
             border-radius: 5px;
-            /* HIER: Transparenz von 0.9 auf 0.8 geändert */
             background-color: rgba(255, 255, 255, 0.8);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             border: 2px solid #4a4a4a;
@@ -34,7 +31,6 @@
             position: relative; 
         }
 
-        /* Box für die süßen Sprüche */
         #sprueche-box {
             font-size: 1em;
             font-style: italic;
@@ -44,7 +40,6 @@
         }
 
         #frage-text {
-            /* NEUE SYSTEM-SCHRIFTART für den dekorativen Look */
             font-family: 'Comic Sans MS', cursive; 
             font-size: 3.5em; 
             margin-bottom: 30px; 
@@ -89,12 +84,11 @@
             text-transform: uppercase;
         }
         
-        /* Styling für den finalen Text (JA-Seite) */
         .final-text h2 {
             font-size: 2.5em;
             color: #cc5b5b;
             margin-bottom: 10px;
-            font-family: 'Comic Sans MS', cursive; /* Anpassung auch hier */
+            font-family: 'Comic Sans MS', cursive;
         }
         .final-text p {
             font-size: 1.2em;
@@ -193,9 +187,8 @@
         jaBtn.addEventListener('click', () => {
             clearInterval(startSpruchInterval);
             
-            // HIER: Hintergrundbild für die JA-Seite auf background2.jpg gesetzt
             body.style.backgroundImage = "url('background2.jpg')";
-            body.style.backgroundColor = ''; // Hintergrundfarbe entfernen, wenn Bild geladen wird
+            body.style.backgroundColor = ''; 
             container.style.borderColor = '#884a51';
             
             const finalerText = `
